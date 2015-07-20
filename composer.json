@@ -16,8 +16,7 @@
     ],
     "require": {
         "robloach/component-installer": "*",
-        "components/jquery": ">=1.7",
-        "boostrap": ">=2.2.2"
+        "components/jquery": ">=1.7"
     },
     "extra": {
         "component": {
