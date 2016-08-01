@@ -1,9 +1,13 @@
 $(function (e) {
 
+    var iDict = dict;
+
+    if(dict.settings) { iDict = dict.settings }
+
     var t = {
         number: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
-        "short": dict.months!=undefined?dict.months.split(","):String("Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec").split(","),
-        "long": dict.longmonths!=undefined?dict.longmonths.split(","):String("January,February,March,April,May,June,July,August,September,October,November,December").split(",")
+        "short": iDict.months!=undefined?iDict.months.split(","):String("Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec").split(","),
+        "long": iDict.longmonths!=undefined?iDict.longmonths.split(","):String("January,February,March,April,May,June,July,August,September,October,November,December").split(",")
     }, n = new Date, r = n.getFullYear(), i = n.getMonth() + 1, s = n.getDate();
     generateBirthdayPicker = function (n, s) {
         var o = e("<fieldset class='birthdayPicker'></fieldset>");
@@ -16,9 +20,9 @@ $(function (e) {
         console.log(f);
         $birthday = e("<input class='birthDay' name='birthDay' type='hidden'/>");
         if (s.placeholder) {
-            e("<option value='0'>"+dict.year+"</option>").appendTo(u);
-            e("<option value='0'>"+dict.month+"</option>").appendTo(a);
-            e("<option value='0'>"+dict.day+"</option>").appendTo(f)
+            e("<option value='0'>"+iDict.year+"</option>").appendTo(u);
+            e("<option value='0'>"+iDict.month+"</option>").appendTo(a);
+            e("<option value='0'>"+iDict.day+"</option>").appendTo(f)
         }
         if (s.dateFormat == "bigEndian") {
             o.append(u).append(a).append(f)
